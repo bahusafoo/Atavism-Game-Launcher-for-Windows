@@ -1,0 +1,14 @@
+﻿<Project Synchronized="False" SyncFilter="*.ps1;*.psm1;*.psd1;*.ps1xml;*.psf;*.pss;*.xml;*.help.txt">
+  <Version>2.1</Version>
+  <FileID>4c073cae-f631-4c28-90a7-7c9cafcfd2bf</FileID>
+  <ProjectType>0</ProjectType>
+  <Folders />
+  <Files>
+    <File Build="0">Startup.pss</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Global_ps1">Globals.ps1</File>
+    <File Build="0" ReferenceFunction="Show-console_MAIN_psf">console_MAIN.psf</File>
+    <File Build="1">.gitignore</File>
+    <File Build="0" ReferenceFunction="Show-console_Settings_psf">console_Settings.psf</File>
+    <File Build="0" ReferenceFunction="Show-console_AVExclusionsList_psf">console_AVExclusionsList.psf</File>
+  </Files>
+</Project>
