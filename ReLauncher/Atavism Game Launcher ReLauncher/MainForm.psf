@@ -1237,7 +1237,11 @@ D7Q394tfLuV98fF7zNMu3lloS1GH1kLQai9s643jGDvJZBuG0+p2W7cz2zOcByWu+erT6BRfczLZ
 LTNTxPfLzkP9Bi8nMXnyvlj1NH37iAeSmqmrFsu1Gel/8TGlliaXcP+H8av56PK28fpnP77lXxHH
 h8IQnb9Gu1SvfqPm4uLiaJ3/CAMzKPrfo9QQfeQxIdOkwXvD+CEpL04yJgnRo4ZE/9j5+v+atRNI
 D44DAA==</Form>
-  <Code><![CDATA[
+  <Code><![CDATA[###################################################
+# Atavism Game Launcher for Windows
+# Author(s): Bahusafoo
+###################################################
+
 $Console_MAIN_Load = {
 	Try
 	{

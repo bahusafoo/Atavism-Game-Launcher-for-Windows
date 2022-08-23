@@ -1082,7 +1082,11 @@ c1uaPlemWptG3T/3nCsur0+9PGVenXza1Crvst5qNi5GN/GfxFVjHvfgyeCTV0FtY+9If6YHe3vR
 6PBG19lt688t/6p+227qR9mOtFJ32bi9XfrWe7i4asfPf+3P8p+fKyt5ZkDr4fbWPPWBm/FthmfA
 CLWx1tLKZv3Wv+roq9udp09f/uf428ZhcLi/WdvZ+J/JaudV71Y/t2+NWxqIp/ZDZ+kn3/p/u0tn
 2AbaD72fD72lC3OLlMzEiJqP3S//D6hbxVRpiwMA</Form>
-  <Code><![CDATA[
+  <Code><![CDATA[###################################################
+# Atavism Game Launcher for Windows
+# Author(s): Bahusafoo
+###################################################
+
 $formAtavismGameLauncherV_Load={
 	#TODO: Initialize Form Controls here
 	Set-ControlTheme $formAtavismGameLauncherV -Theme Dark

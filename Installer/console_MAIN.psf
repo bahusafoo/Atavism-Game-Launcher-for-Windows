@@ -1033,7 +1033,12 @@ ZLV4FmNha3MOy3BthpXITVupr7SkdckriO4dfYFNv3rSLz+WF+ik2VKL/NfyAg21+XW9QFnK7ofZ
 vd7nz1n65kQL6KB5ddVq5LWDhl4OvxheebZf2z48VT/T0mpd6eure9BRP7e9Zr3VCdVi6kTKdr5u
 qIPrpP9w1ezEK3Dzc/nzWmU9zxpsP9DxwD3L+LJ/9Jj59f61XmojI9LskwF/0mhRJ2Y+WxNDoX/s
 /fX/NcB15DiYAwA=</Form>
-  <Code><![CDATA[$console_MAIN_Load = {
+  <Code><![CDATA[###################################################
+# Atavism Game Launcher for Windows
+# Author(s): Bahusafoo
+###################################################
+
+$console_MAIN_Load = {
 	$script:Silent = $false
 	Set-ControlTheme $console_MAIN -Theme Dark
 	Apply-LanguageOverrides

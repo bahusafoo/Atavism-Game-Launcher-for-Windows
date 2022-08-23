@@ -1,9 +1,8 @@
-﻿#--------------------------------------------
-# Declare Global Variables and Functions here
-#--------------------------------------------
+﻿###################################################
+# Atavism Game Launcher for Windows
+# Author(s): Bahusafoo
+###################################################
 
-
-#Sample function that provides the location of the script
 function Get-ScriptDirectory
 {
 <#
@@ -28,7 +27,6 @@ function Get-ScriptDirectory
 	}
 }
 
-#Sample variable that provides the location of the script
 [string]$global:ScriptDirectory = Get-ScriptDirectory
 [string]$global:LauncherInstallerVersion = [System.Windows.Forms.Application]::ProductVersion.ToString()
 $global:LauncherInstalledDirectory = ""

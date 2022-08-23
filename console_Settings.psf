@@ -1235,7 +1235,11 @@ V/p7aepdZ1xTcj/68vrU+1Au/Q1Pnlv4tvvPuFGZz5b01krXHOba26pfaiDqSZfNyS/Vz6n3wVIe
 E3VQB3vZUihWyFmUZ/eN10Lm3cnJSU1zr2utkLwkY9v5T+LWMVN08M3k2bql7MJ6h1dFx2vUmu3w
 1Wduxm+OmMUj3KNevXvZadzxZDipN9FHZZY1kqfIXa13vRSIwUbGW+pZJEZKv+x+/X862cWvypUD
 AA==</Form>
-  <Code><![CDATA[
+  <Code><![CDATA[###################################################
+# Atavism Game Launcher for Windows
+# Author(s): Bahusafoo
+###################################################
+
 function Log-Action ($Message, $StampDateTime, $WriteHost)
 {
 	if (!(Test-Path -Path $global:LogPath))

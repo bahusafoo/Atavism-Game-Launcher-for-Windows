@@ -1125,7 +1125,11 @@ MCbWeo6v7OmBurq9ajVGP+vMKT95oHKIOmrULw5at8+5f1vvhO3bW7fe0UOun3nv6rx+m3u1lbGs
 WZfdx9wzoFReoRkw1QTIs4h4v62FS8/tx6XLer+xdNXtPja6S9FV73LpqtXt1W9v0eGldmfpvt7T
 z6TV/GOJDtkrvdiX6hcX+oWl3mVjKdQTPKKbhu3jUq9NkvXH7NnebYe9qN5pLP1PVQ/7LQ39UmHJ
 a98/659earTqZ7eNi//9v/GTN3Fj/uz+9f+7ZvjgsogDAA==</Form>
-  <Code><![CDATA[
+  <Code><![CDATA[###################################################
+# Atavism Game Launcher for Windows
+# Author(s): Bahusafoo
+###################################################
+
 $console_AVExclusionsList_Load={
 	$console_AVExclusionsList.Icon = $global:Icon_Launcher
 	Apply-LanguageTexts
