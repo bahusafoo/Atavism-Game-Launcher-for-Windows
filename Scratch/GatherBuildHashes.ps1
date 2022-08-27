@@ -1,10 +1,4 @@
-﻿###################################################
-# Atavism Game Launcher for Windows
-# Scratch Script
-# Author(s): Bahusafoo
-###################################################
-
-$ReleaseBuildPath = "E:\Projects\Gamdev\LauncherDemoGame2\Builds\21.12.13.1\"
+﻿$ReleaseBuildPath = "E:\Projects\Gamdev\LauncherDemoGame2\Builds\21.12.13.1\"
 
 function StripEndingSlash ($PathToStrip) {
     if ($PathToStrip -like "*\") {

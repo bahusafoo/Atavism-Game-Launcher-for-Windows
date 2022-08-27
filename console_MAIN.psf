@@ -49248,7 +49248,6 @@ Wv91LCHju2HKf1lEBPI1MvrJA/5Hiedl390QZ7+VBv2k/P9R0uG7PL7+phb2mSd8SUJ/+3P68/8H
 # Atavism Game Launcher for Windows
 # Author(s): Bahusafoo
 ###################################################
-
 $code = @'
 using System;
 using System.Runtime.InteropServices;
@@ -49514,7 +49513,7 @@ function Load-BaseConfig
 			if (($AllSettingsValid -eq $true) -and (($Global:BaseConfigPackageVersion -ne "") -and ($Global:LauncherDownloadRootURL -ne "") -and ($Global:PublisherName -ne "") -and ($Global:GameName -ne "")))
 			{
 				$console_MAIN.SuspendLayout()
-				$Global:LauncherMainConfigURL = "$($Global:LauncherDownloadRootURL)/MainConfig.config"
+				$Global:LauncherMainConfigURL = "$($Global:LauncherDownloadRootURL)/MainConfig.glconfig"
 				$console_MAIN.Text = "$($Global:GameName) Launcher"
 				$Label_CopyRightInfo.Text = $Label_CopyRightInfo.Text.Replace("Company Name", $global:PublisherName)
 				$global:LogPath = "$($Env:LOCALAPPDATA)\$($global:PublisherName)\$($global:GameName)\Logs"
@@ -49591,16 +49590,16 @@ function Load-MainConfig
 		
 		
 		#### Clear Old Files ####
-		if (Test-Path -Path "$($global:MainConfigDir)\MainConfig.config")
+		if (Test-Path -Path "$($global:MainConfigDir)\MainConfig.glconfig")
 		{
 			Try
 			{
-				Remove-Item -Path "$($global:MainConfigDir)\MainConfig.config" -Force -ErrorAction Stop
+				Remove-Item -Path "$($global:MainConfigDir)\MainConfig.glconfig" -Force -ErrorAction Stop
 				Log-Action -Message "Old MainConfig removal success"
 			}
 			catch
 			{
-				Log-Action -Message "Old MainConfig removal failed - Location: $($global:MainConfigDir)\MainConfig.config - Message was: $($_.Exception.Message) "
+				Log-Action -Message "Old MainConfig removal failed - Location: $($global:MainConfigDir)\MainConfig.glconfig - Message was: $($_.Exception.Message) "
 				return $false
 			}
 			
@@ -49632,14 +49631,14 @@ function Load-MainConfig
 		
 		#Download Main Launcher Config
 		Log-Action -Message "Downloading MainConfig from ""$($Global:LauncherMainConfigURL)""..."
-		$DLResult = Invoke-WebRequest -Uri "$($Global:LauncherMainConfigURL)" -OutFile "$($global:MainConfigDir)\MainConfig.config" -ErrorAction Stop -Method Get -PassThru -UseBasicParsing
+		$DLResult = Invoke-WebRequest -Uri "$($Global:LauncherMainConfigURL)" -OutFile "$($global:MainConfigDir)\MainConfig.glconfig" -ErrorAction Stop -Method Get -PassThru -UseBasicParsing
 		Log-Action -Message "MainConfig Download Result: $($DLResult.StatusCode)"
 		Try
 		{
 			switch ($DLResult.StatusCode)
 			{
 				"200" {
-					[array]$ConfigLines = Get-Content -Path "$($global:MainConfigDir)\MainConfig.config" -ErrorAction Stop
+					[array]$ConfigLines = Get-Content -Path "$($global:MainConfigDir)\MainConfig.glconfig" -ErrorAction Stop
 					if ($ConfigLines[0] -like "#######*")
 					{
 						$AllSettingsValid = $true
@@ -49769,7 +49768,7 @@ function Load-MainConfig
 					{
 						Log-Action -Message "Error: The Main configuration file that has been downloaded is invalid."
 						Log-Action -Message " - Supporting Error Info: The file was downloaded from ""$($Global:LauncherMainConfigURL)"""
-						Log-Action -Message " - Supporting Error Info: The file is located at ""$($global:MainConfigDir)\MainConfig.config"""
+						Log-Action -Message " - Supporting Error Info: The file is located at ""$($global:MainConfigDir)\MainConfig.glconfig"""
 						Throw-ErrorMessage -Message $global:LangTextMainConfigFileInvalidMessageBoxMessage.Replace("!PUBLISHER!", $global:PublisherName).Replace("!MAINCONFIGDIR!", $global:MainConfigDir).Replace("!LOGPATH!", $global:LogPath) -Caption $global:LangTextMainConfigFileInvalidMessageBoxCaption
 					}
 				}
@@ -50953,7 +50952,7 @@ function Download-GameFiles ([array]$DownloadFiles)
 			{
 				New-Item -Path $ProposedFileHome -ItemType Directory -Force -ErrorAction SilentlyContinue -Confirm:$false | Out-Null
 			}
-			Log-Action -Message "Start Download: ""$($Global:ClientDownloadRootURL)$($($DownloadFile.Split('|')[0]).Replace('\', '/'))"""
+			Log-Action -Message "Start Download: ""$($Global:ClientDownloadRootURL)$($($DownloadFile.Split('|')[0]).Replace('\', '/')).GLTMP"""
 			
 			$DLFilePath = "$($global:UserPref_GameInstallationDirectory)$($DownloadFile.Split('|')[0])"
 			$DLFileSource = "$($Global:ClientDownloadRootURL)$($($DownloadFile.Split('|')[0]).Replace('\', '/'))"
@@ -50962,13 +50961,13 @@ function Download-GameFiles ([array]$DownloadFiles)
 			Try
 			{
 				$DownloadClient = New-Object System.Net.WebClient
-				$DownloadClient.DownloadFile("$($DLFileSource)", "$($DLFilePath)")
+				$DownloadClient.DownloadFile("$($DLFileSource).GLTMP", "$($DLFilePath)")
 				$DownloadClient.Dispose()
-				Log-Action -Message " - Download ""$($DownloadFile.Split('|')[0])"" finished."
+				Log-Action -Message " - Download ""$($DownloadFile.Split('|')[0])"" finished.  Game Launcher Temp extension was removed."
 			}
 			catch
 			{
-				Log-Action -Message " - Error!  Downloading ""$($DownloadFile.Split('|')[0])"" failed ($_)!"
+				Log-Action -Message " - Error!  Downloading ""$($DownloadFile.Split('|')[0]).GLTMP"" failed ($_)!"
 				$AllSuccess = $false
 				break
 			}
@@ -51374,7 +51373,7 @@ $Timer_CleanLocalGameFiles_Tick = {
 
 function Apply-LanguageOverrides
 {
-	$LangFile = "$($global:ScriptDirectory)\Config\LanguageOverrides.config"
+	$LangFile = "$($global:ScriptDirectory)\Config\LanguageOverrides.glconfig"
 	if (Test-Path -Path $LangFile)
 	{
 		Try

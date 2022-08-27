@@ -33,7 +33,7 @@ $global:CurrentProcessID = $PID
 $Global:VersionRunning = $([System.Windows.Forms.Application]::ProductVersion.ToString().Replace(",", "."))
 
 ##### Base Config Globals #####
-$global:BaseConfigPath = "$($global:ScriptDirectory)\Config\BaseConfig.config"
+$global:BaseConfigPath = "$($global:ScriptDirectory)\Config\BaseConfig.glconfig"
 [version]$global:BaseConfigPackageVersion = "0.0.0.0"
 $Global:GameName = ""
 $Global:PublisherName = ""
@@ -106,11 +106,11 @@ $global:LangTextEULADownloadFailedMessageBoxMessage = "End User License Agreemen
 $global:LangTextLauncherSettingsNotConfiguredMessageBoxCaption = "User Settings Error"
 $global:LangTextLauncherSettingsNotConfiguredMessageBoxMessage = "Launcher settings were not configured.  The launcher will not install or patch the game until these have been set.  Please use the settings button to configure settings."
 $global:LangTextMainConfigFileInvalidMessageBoxCaption = "Main Configuration from Server is Invalid!"
-$global:LangTextMainConfigFileInvalidMessageBoxMessage = "The Main Configuration file returned from the server is not a valid launcher Configuration file.`n`r`n`rPlease contact !PUBLISHER! and provide them the file located at ""!MAINCONFIGDIR!\MainConfig.config"" as well as the log located at ""!LOGPATH!\Launcher.log"""
+$global:LangTextMainConfigFileInvalidMessageBoxMessage = "The Main Configuration file returned from the server is not a valid launcher Configuration file.`n`r`n`rPlease contact !PUBLISHER! and provide them the file located at ""!MAINCONFIGDIR!\MainConfig.glconfig"" as well as the log located at ""!LOGPATH!\Launcher.log"""
 $global:LangTextBaseConfigFileInvalidMessageBoxCaption = "BaseConfig.conf error"
 $global:LangTextBaseConfigSettingMissingPropertiesMessageBoxMessage = "A setting provided has either no name or no value!"
 $global:LangTextBaseConfigUnknownSettingMessageBoxMessage = "A setting provided (!SETTINGNAME!) is unknown and will be ignored!"
-$global:LangTextBaseConfigFileInvalidMessageBoxMessage = "There was a problem loading BaseConfig.config file!  Please make sure the file exists and is valid!"
+$global:LangTextBaseConfigFileInvalidMessageBoxMessage = "There was a problem loading BaseConfig.glconfig file!  Please make sure the file exists and is valid!"
 $global:LangTextBaseConfigLoadErrorMessageBoxCaption = "Base Configuration Error"
 $global:LangTextBaseConfigLoadErrorMessageBoxMessage = "There was an error loading the base Configuration file for the launcher, please try reinstalling.  The application will exit now."
 $global:LangTextMainConfigLoadErrorMessageBoxCaption = "Main Configuration Load Error"

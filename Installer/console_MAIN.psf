@@ -1765,7 +1765,7 @@ function Start-Install ($ProposedPath)
 
 function Apply-LanguageOverrides
 {
-	$LangFile = "$($global:ScriptDirectory)\Payload\Config\LanguageOverrides.config"
+	$LangFile = "$($global:ScriptDirectory)\Payload\Config\LanguageOverrides.glconfig"
 	if (Test-Path -Path $LangFile)
 	{
 		Try

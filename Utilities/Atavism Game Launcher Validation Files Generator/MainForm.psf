@@ -1088,7 +1088,6 @@ CLWx1tLKZv3Wv+roq9udp09f/uf428ZhcLi/WdvZ+J/JaudV71Y/t2+NWxqIp/ZDZ+kn3/p/u0tn
 ###################################################
 
 $formAtavismGameLauncherV_Load={
-	#TODO: Initialize Form Controls here
 	Set-ControlTheme $formAtavismGameLauncherV -Theme Dark
 	Validate-BuildProjectInput
 }
@@ -1477,6 +1476,21 @@ function Generate-ReleaseHashValidationFiles
 					$ReleaseHashInfo.Add("$($HashInfo.Hash.ToLower()),$($ChildFile.FullName.Replace($global:ReleaseBuildPath, '')),$ChildFileSize") | Out-Null
 					$ReleaseHashList.Add($HashInfo.Hash.ToLower()) | Out-Null
 				}
+				# Add the .GLTMP extension to the file - this will add compatability with web hosts
+				if ($(Get-Item -Path $ChildFile.Fullname) -isnot [System.IO.DirectoryInfo]) {
+					if ($(Get-Item -Path $ChildFile.FullName).extension -ne ".GLTMP")
+					{
+						try
+						{
+							Rename-Item $ChildFile.FullName -NewName "$($ChildFile.FullName).GLTMP" -Force
+						}
+						catch
+						{
+							# Fall Back to making a copy of the file (this is usually due to a file being in use/locked.  We still need to ensure a .GLTMP copy exists.)
+							Copy-Item -Path $ChildFile.FullName -Destination "$($ChildFile.FullName).GLTMP" -Force -ErrorAction Stop
+						}
+					}
+				}
 			}
 		}
 		$ReleaseHashList = $ReleaseHashList | Sort-Object -Descending
@@ -1510,14 +1524,15 @@ $Button_GenerateBuildValidationFiles_Click={
 			$global:ReleaseBuildPath = Strip-EndingSlash -PathToStrip $TextBox_ProjectBuildPath.Text
 			if ($(Generate-ReleaseHashValidationFiles) -eq $true)
 			{
-				Start-Process -FilePath explorer.exe -ArgumentList "$($global:OutPutRoot)\Launcher Resources" -ErrorAction SilentlyContinue
 				if (Test-Path -Path "$($TextBox_ProjectBuildPath.Text)\UnityCrashHandler32.exe")
 				{
-					[System.Windows.Forms.MessageBox]::Show("Validation File Generation completed for this build, output has been saved to ""$($global:ReleaseBuildPath)"".  Please copy the FileHashesList.launchervallst file up to your public web server at the path you configured in your Launcher_Validation scene.`n`r`n`rYour build has UnityCrashHandler32.exe present, indicating a 32-bit build.  You should consider switching to 64-bit to avoid 2GB Memory process limitations (32-bit processes crash when hitting 2GB of RAM used).", "Success, but wait!")
+					[System.Windows.Forms.MessageBox]::Show("Validation File Generation completed for this build, output has been saved to ""$($global:ReleaseBuildPath)"".  Please copy the FileHashesList.launchervallst file up to your public web server at the path you configured in your Launcher_Validation scene.`n`r`n`rThe files in your build have been converted to .GLTMP files in order to ensure compatability with web hosts.  This is normal, and the launcher with strip the temporary extension when installing/patching game files for clients.  Please upload the converted version of your build to your web server now.`n`r`n`rYour build has UnityCrashHandler32.exe present, indicating a 32-bit build.  You should consider switching to 64-bit to avoid 2GB Memory process limitations (32-bit processes crash when hitting 2GB of RAM used).", "Success, but wait!")
+					#Open LauncherValLst directory
+					Start-Process -FilePath explorer.exe -ArgumentList "$($global:OutPutRoot)\Launcher Resources" -ErrorAction SilentlyContinue
 				}
 				else
 				{
-					[System.Windows.Forms.MessageBox]::Show("Validation File Generation completed for this build, output has been saved to ""$($global:ReleaseBuildPath)"".  Please copy the FileHashesList.launchervallst file up to your public web server at the path you configured in your Launcher_Validation scene.", "Success!")
+					[System.Windows.Forms.MessageBox]::Show("Validation File Generation completed for this build, output has been saved to ""$($global:ReleaseBuildPath)"".  Please copy the FileHashesList.launchervallst file up to your public web server at the path you configured in your Launcher_Validation scene.`n`r`n`rThe files in your build have been converted to .GLTMP files in order to ensure compatability with web hosts.  This is normal, and the launcher with strip the temporary extension when installing/patching game files for clients.  Please upload the converted version of your build to your web server now.", "Success!")
 				}
 			}
 			else

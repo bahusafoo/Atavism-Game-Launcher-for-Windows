@@ -1254,7 +1254,7 @@ $Console_MAIN_Load = {
 	}
 	Try
 	{
-		$BaseConfigInput = Get-Content -Path "$($global:ScriptDirectory)\Config\BaseConfig.config" -ErrorAction Stop
+		$BaseConfigInput = Get-Content -Path "$($global:ScriptDirectory)\Config\BaseConfig.glconfig" -ErrorAction Stop
 		foreach ($ConfigLine in $BaseConfigInput)
 		{
 			if (($ConfigLine -ne "") -and ($ConfigLine -notlike " *") -and ($ConfigLine -notlike "#*") -and ($ConfigLine -like "*=*"))
@@ -1302,8 +1302,8 @@ function Check-VersionJob
 		{
 			$Tries += 1
 			Start-Sleep -Seconds 10
-			Copy-Item -Path "$($ScriptRootDir)\Config\BaseConfig.config" -Destination "$($ScriptRootDir)\Config\BaseConfig-CheckCopy.config" -Force -ErrorAction SilentlyContinue
-			$BaseConfigInput = Get-Content -Path "$($ScriptRootDir)\Config\BaseConfig.config" -ErrorAction Stop
+			Copy-Item -Path "$($ScriptRootDir)\Config\BaseConfig.glconfig" -Destination "$($ScriptRootDir)\Config\BaseConfig-CheckCopy.glconfig" -Force -ErrorAction SilentlyContinue
+			$BaseConfigInput = Get-Content -Path "$($ScriptRootDir)\Config\BaseConfig.glconfig" -ErrorAction Stop
 			foreach ($ConfigLine in $BaseConfigInput)
 			{
 				if (($ConfigLine -ne "") -and ($ConfigLine -notlike " *") -and ($ConfigLine -notlike "#*") -and ($ConfigLine -like "*=*"))
@@ -1401,7 +1401,7 @@ $Timer_CloseEnable_Tick = {
 }
 
 $Console_MAIN_FormClosing=[System.Windows.Forms.FormClosingEventHandler]{
-	Remove-Item -Path "$($ScriptRootDir)\Config\BaseConfig-CheckCopy.config" -Force -Confirm:$false -ErrorAction SilentlyContinue
+	Remove-Item -Path "$($ScriptRootDir)\Config\BaseConfig-CheckCopy.glconfig" -Force -Confirm:$false -ErrorAction SilentlyContinue
 }
 ]]></Code>
   <Mode>1</Mode>
