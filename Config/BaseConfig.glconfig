@@ -5,7 +5,7 @@
 ##########################################
 # Do not include trailing backslashes
 ##########################################
-BaseConfigPackageVersion=22.8.27.4
-GameName=SomeGame Online
-PublisherName=Something Corp
-LauncherDownloadRootURL=https://visuaFUSION.com/Downloads/SomeGame Online/Dev/Launcher
+BaseConfigPackageVersion=22.9.8.1
+GameName=Game of Games
+PublisherName=Your Game Studio
+LauncherDownloadRootURL=https://YourGameStudio.Com/Downloads/GameFiles/Game of Games/Dev/launcher
