@@ -429,7 +429,7 @@ ERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERER
 ERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERER
 ERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERER
 ERERERERERERERERERH5cbCy+v8BgN4ZgEsNdA0AAAAASUVORK5CYII=</Preview>
-  <Form>Ahxf1BvWD44DACODCAAAAAAABACE+8eO48yWLgzPE8h72OgpG4feAacPQO+dRD/5IVIkRW9Fd/Vf5Lu7Zz/Q
+  <Form>Ahxf1BvWEI4DACODCAAAAAAABACE+8eO48yWLgzPE8h72OgpG4feAacPQO+dRD/5IVIkRW9Fd/Vf5Lu7Zz/Q
 VUClUmQYxlrrMcGo/+tkTZFv6//7/fnXv/7vv3/513ZNxX/9x/Nat6L/P1E9vMdj/T/yuPT//vc/
 //X/79J//isslrUeh/8i/g/y9/c//yV8u+27FP81FN9teXX/+S/3m3V1bhSXP7bF8F8ZTb/InKRQ
 FicKhGH/41/DqwcjC+Owjl3x/7M4zf6Pf+Wfunsv4Pa/77dl7Nb/+Ge2YL7uMk7Fsl3/3Y77buMz
@@ -1235,8 +1235,8 @@ D7Q394tfLuV98fF7zNMu3lloS1GH1kLQai9s643jGDvJZBuG0+p2W7cz2zOcByWu+erT6BRfczLZ
 5LHVKNHMUXvk54WDy/AizzHh1M+uZcY5N/Vc79+7rN+0woNGR3Xu09e9bzkeWW/WT28aSsnYqN90
 8rzBjZt6VzYM+vFNzuSVpaWJ1o68pPwrZnniBZNnH+YF85jjzuOOGqHbO9Vd9TLosYOG+po21MZM
 LTNTxPfLzkP9Bi8nMXnyvlj1NH37iAeSmqmrFsu1Gel/8TGlliaXcP+H8av56PK28fpnP77lXxHH
-h8IQnb9Gu1SvfqPm4uLiaJ3/CAMzKPrfo9QQfeQxIdOkwXvD+CEpL04yJgnRo4ZE/9j5+v+atRNI
-D44DAA==</Form>
+h8IQnb9Gu1SvfqPm4uLiaJ3/CAMzKPrfo9QQfeQxIdOkwXvD+CFZWlycZFASskeNif6x8/X/Aakr
+ZFYQjgMA</Form>
   <Code><![CDATA[###################################################
 # Atavism Game Launcher for Windows
 # Author(s): Bahusafoo
@@ -1346,6 +1346,18 @@ $Timer_VersionCheck_Tick = {
 				}
 				"Waiting for Launcher Update..." {
 					$Label_StatusCheck.Text = "Waiting for Launcher Update"
+				}
+				"The update is taking a little longer than expected" {
+					$Label_StatusCheck.Text = "The update is taking a little longer than expected."
+				}
+				"The update is taking a little longer than expected." {
+					$Label_StatusCheck.Text = "The update is taking a little longer than expected.."
+				}
+				"The update is taking a little longer than expected.." {
+					$Label_StatusCheck.Text = "The update is taking a little longer than expected..."
+				}
+				"The update is taking a little longer than expected..." {
+					$Label_StatusCheck.Text = "The update is taking a little longer than expected"
 				}
 				default {
 					$Label_StatusCheck.Text = "Waiting for Launcher Update"

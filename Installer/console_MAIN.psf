@@ -1271,19 +1271,6 @@ function Validate-LocationText
 	}
 }
 
-function Set-Resources
-{
-	Try
-	{
-		$Global:Icon_Launcher = [System.Drawing.Icon]::ExtractAssociatedIcon("$($global:ScriptDirectory)\Resources\Launcher.ico")
-		$console_MAIN.Icon = $global:Icon_Launcher
-	}
-	catch
-	{
-		
-	}
-}
-
 #region Control Theme Helper Function
 <#
 	.SYNOPSIS
@@ -1599,8 +1586,12 @@ function Set-Resources
 {
 	Try
 	{
-		Try
-		{
+		$Global:Icon_Launcher = [System.Drawing.Icon]::ExtractAssociatedIcon("$($global:ScriptDirectory)\Resources\Launcher.ico")
+		$console_MAIN.Icon = $global:Icon_Launcher
+	}
+	catch
+	{
+		Try {
 			$Global:Icon_Launcher = [System.Drawing.Icon]::ExtractAssociatedIcon("$($global:ScriptDirectory)\Payload\Resources\Launcher.ico")
 			$console_MAIN.Icon = $global:Icon_Launcher
 		}
@@ -1609,11 +1600,8 @@ function Set-Resources
 			# Nothing
 		}
 	}
-	catch
-	{
-		#Nothing
-	}
 }
+
 $Button_InstallerBrowse_Click = {
 	Try
 	{
